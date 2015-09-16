@@ -12,7 +12,6 @@ class DefaultPriorityTaskWithTimer extends AdvancedAsyncTask<String, String, Str
 	private String TAG_NAME = DefaultPriorityTaskWithTimer.class.getSimpleName();
 
 	private int number;
-
 	public DefaultPriorityTaskWithTimer(int number, AdvancedAsyncTaskCancelTimer timer) {
 		super(QueuePriority.MEDIUM, ThreadPriority.MEDIUM, timer);
 

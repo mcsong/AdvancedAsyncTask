@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/library/gradle.properties" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/library/justin_song.gpg" charset="x-windows-949" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
