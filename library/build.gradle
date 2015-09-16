@@ -1,4 +1,25 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'mcsong'
+    groupId = 'net.sjava'
+    artifactId = 'advancedasynctask'
+    publishVersion = '1.0.0'
+    desc = 'Advanced Asynctask library for Android'
+    website = 'https://github.com/mcsong/AdvancedAsyncTask'
+    issueTracker = "${website}/issues"
+    repository = "${website}.git"
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.3.4'
+    }
+}
 
 android {
     compileSdkVersion 23
@@ -12,7 +33,7 @@ android {
         minSdkVersion 8
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -27,4 +48,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
 }
 
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+//apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
