@@ -1,5 +1,6 @@
 package net.sjava.advancedasynctask.demo;
 
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import net.sjava.advancedasynctask.AdvancedAsyncTask;
 import net.sjava.advancedasynctask.AdvancedAsyncTaskCancelTimer;
+import net.sjava.advancedasynctask.AdvancedAsyncTaskCompat;
+import net.sjava.advancedasynctask.AdvancedThreadPoolExecutorFactory;
 
 /**
  *
@@ -33,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
 				for (int i = 1; i < 200; i++) {
 					int vv = i % 4;
 
-					if (vv == 0)
-						new HighPriorityTask(i).executeOnExecutor(AdvancedAsyncTask.getThreadPoolExecutor(), "");
-					else {
-						new DefaultPriorityTask(i).executeOnExecutor(AdvancedAsyncTask.getThreadPoolExecutor(), "");
+					if (vv == 0) {
+						AdvancedAsyncTaskCompat.executeParallel(new HighPriorityTask(i), "");
+						//new HighPriorityTask(i).executeOnExecutor(AdvancedAsyncTask.getThreadPoolExecutor(), "");
+					} else {
+
+						AdvancedAsyncTaskCompat.executeParallel(new DefaultPriorityTask(i), "");
+						//new DefaultPriorityTask(i).executeOnExecutor(AdvancedAsyncTask.getThreadPoolExecutor(), "");
 
 					}
 				}
