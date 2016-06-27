@@ -10,7 +10,7 @@ This library is enhanced for using AsyncTask api.
 Gradle
 ```groovy
     dependencies {
-    	compile 'net.sjava:advancedasynctask:1.0.0'
+    	compile 'net.sjava:advancedasynctask:1.0.1'
     }
 ```
 
@@ -19,7 +19,7 @@ Maven
     <dependency>
      <groupId>net.sjava</groupId>
      <artifactId>advancedasynctask</artifactId>
-     <version>1.0.0</version>
+     <version>1.0.1</version>
     </dependency>
 ```
 
