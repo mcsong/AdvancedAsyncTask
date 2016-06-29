@@ -1,4 +1,4 @@
-# AdvancedAsyncTask
+# AdvancedAsyncTask [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MaterialDrawer-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/2506)
 This library is enhanced for using AsyncTask api. 
 
 ## Features
@@ -10,7 +10,7 @@ This library is enhanced for using AsyncTask api.
 Gradle
 ```groovy
     dependencies {
-    	compile 'net.sjava:advancedasynctask:1.0.1'
+    	compile 'net.sjava:advancedasynctask:1.0.2'
     }
 ```
 
@@ -19,7 +19,7 @@ Maven
     <dependency>
      <groupId>net.sjava</groupId>
      <artifactId>advancedasynctask</artifactId>
-     <version>1.0.1</version>
+     <version>1.0.2</version>
     </dependency>
 ```
 
