@@ -176,7 +176,7 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 	private WorkerRunnable<Params, Result> mWorker;
 	private FutureTask<Result> mFuture;
 
-	private volatile AsyncTaskStatus mStatus = AsyncTaskStatus.PENDING;
+	private volatile AdvancedAsyncTaskStatus mStatus = AdvancedAsyncTaskStatus.PENDING;
 
 	private final AtomicBoolean mCancelled = new AtomicBoolean();
 	private final AtomicBoolean mTaskInvoked = new AtomicBoolean();
@@ -284,7 +284,7 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 
 	private Result postResult(Result result) {
 		@SuppressWarnings("unchecked")
-		Message message = getHandler().obtainMessage(MESSAGE_POST_RESULT, new AsyncTaskResult<Result>(this, result));
+		Message message = getHandler().obtainMessage(MESSAGE_POST_RESULT, new AdvancedAsyncTaskResult<Result>(this, result));
 		message.sendToTarget();
 		return result;
 	}
@@ -294,7 +294,7 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 	 *
 	 * @return The current status.
 	 */
-	public final AsyncTaskStatus getStatus() {
+	public final AdvancedAsyncTaskStatus getStatus() {
 		return mStatus;
 	}
 
@@ -541,7 +541,7 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 	 * @see #execute(Object[])
 	 */
 	public final AdvancedAsyncTask<Params, Progress, Result> executeOnExecutor(Executor exec, Params... params) {
-		if (mStatus != AsyncTaskStatus.PENDING) {
+		if (mStatus != AdvancedAsyncTaskStatus.PENDING) {
 			switch (mStatus) {
 				case RUNNING:
 					throw new IllegalStateException("Cannot execute task:"
@@ -553,7 +553,7 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 			}
 		}
 
-		mStatus = AsyncTaskStatus.RUNNING;
+		mStatus = AdvancedAsyncTaskStatus.RUNNING;
 
 		onPreExecute();
 
@@ -595,7 +595,7 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 			return;
 
 		getHandler().obtainMessage(MESSAGE_POST_PROGRESS,
-				new AsyncTaskResult<Progress>(this, values)).sendToTarget();
+				new AdvancedAsyncTaskResult<Progress>(this, values)).sendToTarget();
 	}
 
 	void finish(Result result) {
@@ -605,7 +605,7 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 			onPostExecute(result);
 		}
 
-		mStatus = AsyncTaskStatus.FINISHED;
+		mStatus = AdvancedAsyncTaskStatus.FINISHED;
 	}
 
 }

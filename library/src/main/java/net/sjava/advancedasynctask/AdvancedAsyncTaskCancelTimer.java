@@ -4,6 +4,8 @@ import android.os.CountDownTimer;
 
 /**
  *
+ * Timer for cancelling registered AdvancedAsyncTask instance.
+ *
  * Created by mcsong@gmail.com on 2015-09-08.
  */
 @SuppressWarnings("rawtypes")
@@ -41,7 +43,7 @@ public class AdvancedAsyncTaskCancelTimer extends CountDownTimer {
 		if(advancedAsyncTask.isCancelled())
 			this.cancel();
 
-		if(advancedAsyncTask.getStatus() == AsyncTaskStatus.FINISHED)
+		if(advancedAsyncTask.getStatus() == AdvancedAsyncTaskStatus.FINISHED)
 			this.cancel();
 	}
 
@@ -50,7 +52,7 @@ public class AdvancedAsyncTaskCancelTimer extends CountDownTimer {
 		if(advancedAsyncTask == null || advancedAsyncTask.isCancelled() )
 			return;
 
-		if(advancedAsyncTask.getStatus() == AsyncTaskStatus.FINISHED)
+		if(advancedAsyncTask.getStatus() == AdvancedAsyncTaskStatus.FINISHED)
 			return;
 
 		advancedAsyncTask.cancel(interrupt);
