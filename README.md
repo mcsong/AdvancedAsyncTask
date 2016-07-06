@@ -1,5 +1,5 @@
 # AdvancedAsyncTask
-[![Release](https://img.shields.io/badge/jcenter-1.0.2-blue.svg)](https://bintray.com/mcsong/maven/AdvancedAsyncTask) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AdvancedAsyncTask-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/2506)
+[![Release](https://img.shields.io/badge/jcenter-1.0.2-blue.svg)](https://bintray.com/mcsong/maven/advancedasynctask) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AdvancedAsyncTask-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/2506)
 
 ## Overview
 This library is enhanced for using AsyncTask api.
