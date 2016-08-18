@@ -234,7 +234,12 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 			public Result call() throws Exception {
 				mTaskInvoked.set(true);
 				Process.setThreadPriority(threadPriorityValue);
-				return postResult(doInBackground(mParams));
+
+				Result result = doInBackground(mParams);
+				Binder.flushPendingCommands();
+				return postResult(result);
+
+				//return postResult(doInBackground(mParams));
 			}
 		};
 
