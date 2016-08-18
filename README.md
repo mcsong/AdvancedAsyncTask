@@ -1,5 +1,8 @@
 # AdvancedAsyncTask
-This library is enhanced for using AsyncTask api. 
+[![Release](https://img.shields.io/badge/jcenter-1.0.2-blue.svg)](https://bintray.com/mcsong/maven/advancedasynctask)  [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AdvancedAsyncTask-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/2506)
+
+## Overview
+This library is enhanced for using AsyncTask api.
 
 ## Features
 - You can handle task's priority in task queue(from fifo queue to priority queue).
@@ -10,7 +13,7 @@ This library is enhanced for using AsyncTask api.
 Gradle
 ```groovy
     dependencies {
-    	compile 'net.sjava:advancedasynctask:1.0.1'
+    	compile 'net.sjava:advancedasynctask:1.0.2'
     }
 ```
 
@@ -19,7 +22,7 @@ Maven
     <dependency>
      <groupId>net.sjava</groupId>
      <artifactId>advancedasynctask</artifactId>
-     <version>1.0.1</version>
+     <version>1.0.2</version>
     </dependency>
 ```
 

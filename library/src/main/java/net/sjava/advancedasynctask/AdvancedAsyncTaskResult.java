@@ -6,11 +6,11 @@ package net.sjava.advancedasynctask;
  *
  */
 @SuppressWarnings({"RawUseOfParameterizedType"})
-class AsyncTaskResult<Data> {
+class AdvancedAsyncTaskResult<Data> {
 	final AdvancedAsyncTask mTask;
 	final Data[] mData;
 
-	AsyncTaskResult(AdvancedAsyncTask task, Data... data) {
+	AdvancedAsyncTaskResult(AdvancedAsyncTask task, Data... data) {
 		mTask = task;
 		mData = data;
 	}

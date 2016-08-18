@@ -4,7 +4,7 @@ package net.sjava.advancedasynctask;
  * Indicates the current status of the task. Each status will be set only once
  * during the lifetime of a task.
  */
-enum AsyncTaskStatus {
+public enum AdvancedAsyncTaskStatus {
 	/**
 	 * Indicates that the task has not been executed yet.
 	 */

@@ -16,7 +16,7 @@ class InternalHandler extends Handler implements Messages {
 	@SuppressWarnings({"unchecked", "RawUseOfParameterizedType"})
 	@Override
 	public void handleMessage(Message msg) {
-		AsyncTaskResult result = (AsyncTaskResult) msg.obj;
+		AdvancedAsyncTaskResult result = (AdvancedAsyncTaskResult) msg.obj;
 
 		switch (msg.what) {
 			case MESSAGE_POST_RESULT:
