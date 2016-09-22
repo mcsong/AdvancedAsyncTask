@@ -8,6 +8,15 @@ package net.sjava.advancedasynctask;
 public class AdvancedAsyncTaskCompat {
 
     public static <Params, Progress, Result> AdvancedAsyncTask<Params, Progress, Result> executeParallel(
+            AdvancedAsyncTask<Params, Progress, Result> task) {
+        if (task == null)
+            throw new IllegalArgumentException("task can not be null");
+
+        return executeParallel(task, null);
+    }
+
+
+    public static <Params, Progress, Result> AdvancedAsyncTask<Params, Progress, Result> executeParallel(
             AdvancedAsyncTask<Params, Progress, Result> task, Params... params) {
         if (task == null)
             throw new IllegalArgumentException("task can not be null");
