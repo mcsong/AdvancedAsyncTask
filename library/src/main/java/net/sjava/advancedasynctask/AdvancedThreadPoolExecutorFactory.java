@@ -9,10 +9,11 @@ import java.util.concurrent.locks.ReentrantLock;
  * Created by mcsong@gmail.com on 2015-09-09.
  */
 public class AdvancedThreadPoolExecutorFactory {
-	private final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-	private final int CORE_POOL_SIZE = CPU_COUNT + 1;
-	private final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
-	private final int KEEP_ALIVE = 1;
+	private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+	private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
+	private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
+	private static final int KEEP_ALIVE_SECONDS = 30;
+
 	private int DEFAULT_QUEUE_SIZE = 64;
 	private final ReentrantLock lock =  new ReentrantLock();
 
@@ -31,8 +32,9 @@ public class AdvancedThreadPoolExecutorFactory {
 	private ThreadPoolExecutor THREAD_POOL_EXECUTOR;
 
 	Executor getThreadPoolExecutor() {
-		if(THREAD_POOL_EXECUTOR != null)
+		if(THREAD_POOL_EXECUTOR != null) {
 			return THREAD_POOL_EXECUTOR;
+		}
 
 		return getThreadPoolExecutor(0);
 	}
@@ -47,28 +49,31 @@ public class AdvancedThreadPoolExecutorFactory {
 
 	Executor getThreadPoolExecutor(int queueSize, BlockingQueue<Runnable> queue, RejectedExecutionHandler rejectedExecutionHandler) {
 		if(queueSize == 0) {
-			if(CPU_COUNT >= 8)
+			if(CPU_COUNT >= 8) {
 				DEFAULT_QUEUE_SIZE = 256;
-			else if(CPU_COUNT >= 4)
+			} else if(CPU_COUNT >= 4) {
 				DEFAULT_QUEUE_SIZE = 128;
-			else
+			} else {
 				DEFAULT_QUEUE_SIZE = 64;
+			}
 		} else if(queueSize > 0 && queueSize < 64) {
 			DEFAULT_QUEUE_SIZE = 64;
 		} else {
 			DEFAULT_QUEUE_SIZE = queueSize;
 		}
 
-		if(queue == null)
+		if(queue == null) {
 			sTaskQueue = new PriorityBlockingQueue<>(DEFAULT_QUEUE_SIZE);
-		else
+		} else {
 			sTaskQueue = queue;
+		}
 
 		RejectedExecutionHandler rejectHandler = rejectedExecutionHandler;
-		if(rejectHandler == null)
+		if(rejectHandler == null) {
 			rejectHandler = new ThreadPoolExecutor.DiscardOldestPolicy();
+		}
 
-		THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE,
+		THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE_SECONDS,
 				TimeUnit.SECONDS, sTaskQueue, sThreadFactory, rejectHandler);
 
 		return THREAD_POOL_EXECUTOR;
@@ -76,8 +81,9 @@ public class AdvancedThreadPoolExecutorFactory {
 
 	private static AdvancedThreadPoolExecutorFactory instance = new AdvancedThreadPoolExecutorFactory();
 	public static AdvancedThreadPoolExecutorFactory getInstance() {
-		if(instance == null)
+		if(instance == null) {
 			instance = new AdvancedThreadPoolExecutorFactory();
+		}
 
 		return instance;
 	}
@@ -85,8 +91,9 @@ public class AdvancedThreadPoolExecutorFactory {
 	private AdvancedThreadPoolExecutorFactory() { }
 
 	public int getQueueCount() {
-		if(sTaskQueue == null)
+		if(sTaskQueue == null) {
 			return 0;
+		}
 
 		return sTaskQueue.size();
 	}

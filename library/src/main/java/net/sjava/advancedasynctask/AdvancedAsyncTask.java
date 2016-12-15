@@ -218,11 +218,13 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 	}
 
 	public AdvancedAsyncTask(QueuePriority queuePriority, ThreadPriority threadPriority, AdvancedAsyncTaskCancelTimer taskCancelTimer) {
-		if(queuePriority == null)
+		if(queuePriority == null) {
 			throw new NullPointerException("QueuePriority is null");
+		}
 
-		if(threadPriority == null)
+		if(threadPriority == null) {
 			throw new NullPointerException("ThreadPriority is null");
+		}
 
 		this.inialize(queuePriority, threadPriority, taskCancelTimer);
 	}
@@ -233,19 +235,26 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 		mWorker = new WorkerRunnable<Params, Result>() {
 			public Result call() throws Exception {
 				mTaskInvoked.set(true);
-				Process.setThreadPriority(threadPriorityValue);
-
-				Result result = doInBackground(mParams);
-				Binder.flushPendingCommands();
-				return postResult(result);
-
-				//return postResult(doInBackground(mParams));
+				Result result = null;
+				try {
+					Process.setThreadPriority(threadPriorityValue);
+					//noinspection unchecked
+					result = doInBackground(mParams);
+					Binder.flushPendingCommands();
+				} catch (Throwable tr) {
+					mCancelled.set(true);
+					throw tr;
+				} finally {
+					postResult(result);
+				}
+				return result;
 			}
 		};
 
 		mFuture = new PriorityFutureTask(mWorker, queuePriority.toInt());
-		if(taskCancelTimer == null)
+		if(taskCancelTimer == null) {
 			return;
+		}
 
 		taskCancelTimer.setAdvancedAsyncTask(this);
 		taskCancelTimer.start();
@@ -274,8 +283,6 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 
 		@Override
 		public int compareTo(PriorityFutureTask another) {
-			//return Integer.valueOf(priority).compareTo(another.priority);
-
 			return priority < another.priority ? 1 : (priority == another.priority ? 0 : -1);
 		}
 	}
