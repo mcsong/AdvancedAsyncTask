@@ -1,5 +1,5 @@
 # AdvancedAsyncTask
-[![Release](https://img.shields.io/badge/jcenter-1.0.4-blue.svg)](https://bintray.com/mcsong/maven/advancedasynctask)  [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AdvancedAsyncTask-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/2506)
+[![Release](https://img.shields.io/badge/jcenter-1.0.5-blue.svg)](https://bintray.com/mcsong/maven/advancedasynctask)  [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AdvancedAsyncTask-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/2506)
 
 ## Overview
 This library is enhanced for using AsyncTask api.
@@ -13,7 +13,7 @@ This library is enhanced for using AsyncTask api.
 Gradle
 ```groovy
     dependencies {
-    	compile 'net.sjava:advancedasynctask:1.0.4'
+    	compile 'net.sjava:advancedasynctask:1.0.5'
     }
 ```
 
@@ -22,7 +22,7 @@ Maven
     <dependency>
      <groupId>net.sjava</groupId>
      <artifactId>advancedasynctask</artifactId>
-     <version>1.0.4</version>
+     <version>1.0.5</version>
     </dependency>
 ```
 
@@ -143,7 +143,7 @@ class DefaultPriorityTaskWithTimer extends AdvancedAsyncTask<String, String, Str
 
 ## License
 
-Copyright 2015 Justin Song
+Copyright 2016 Justin Song
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
