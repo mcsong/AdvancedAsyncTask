@@ -183,8 +183,9 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 
 	private static Handler getHandler() {
 		synchronized (AdvancedAsyncTask.class) {
-			if (sHandler == null)
+			if (sHandler == null) {
 				sHandler = new InternalHandler();
+			}
 
 			return sHandler;
 		}
@@ -296,7 +297,7 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 
 	private Result postResult(Result result) {
 		@SuppressWarnings("unchecked")
-		Message message = getHandler().obtainMessage(MESSAGE_POST_RESULT, new AdvancedAsyncTaskResult<Result>(this, result));
+		Message message = getHandler().obtainMessage(MESSAGE_POST_RESULT, new AdvancedAsyncTaskResult<>(this, result));
 		message.sendToTarget();
 		return result;
 	}
@@ -603,11 +604,12 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 	 * @see #doInBackground
 	 */
 	protected final void publishProgress(Progress... values) {
-		if (isCancelled())
+		if (isCancelled()) {
 			return;
+		}
 
 		getHandler().obtainMessage(MESSAGE_POST_PROGRESS,
-				new AdvancedAsyncTaskResult<Progress>(this, values)).sendToTarget();
+				new AdvancedAsyncTaskResult<>(this, values)).sendToTarget();
 	}
 
 	void finish(Result result) {

@@ -40,20 +40,24 @@ public class AdvancedAsyncTaskCancelTimer extends CountDownTimer {
 			return;
 		}
 
-		if(advancedAsyncTask.isCancelled())
+		if(advancedAsyncTask.isCancelled()) {
 			this.cancel();
+		}
 
-		if(advancedAsyncTask.getStatus() == AdvancedAsyncTaskStatus.FINISHED)
+		if(advancedAsyncTask.getStatus() == AdvancedAsyncTaskStatus.FINISHED) {
 			this.cancel();
+		}
 	}
 
 	@Override
 	public void onFinish() {
-		if(advancedAsyncTask == null || advancedAsyncTask.isCancelled() )
+		if(advancedAsyncTask == null || advancedAsyncTask.isCancelled() ) {
 			return;
+		}
 
-		if(advancedAsyncTask.getStatus() == AdvancedAsyncTaskStatus.FINISHED)
+		if(advancedAsyncTask.getStatus() == AdvancedAsyncTaskStatus.FINISHED) {
 			return;
+		}
 
 		advancedAsyncTask.cancel(interrupt);
 	}
