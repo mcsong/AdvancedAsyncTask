@@ -5,7 +5,7 @@ publish {
     userOrg = 'mcsong'
     groupId = 'net.sjava'
     artifactId = 'advancedasynctask'
-    publishVersion = '1.0.6'
+    publishVersion = '1.0.7'
     desc = 'Advanced Asynctask library for Android'
     website = 'https://github.com/mcsong/AdvancedAsyncTask'
     issueTracker = "${website}/issues"
@@ -17,13 +17,14 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.novoda:bintray-release:0.3.4'
+        classpath 'com.novoda:bintray-release:0.5.0'
+        //classpath 'com.novoda:bintray-release:0.3.4'
     }
 }
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "27.0.2"
 
     lintOptions {
         checkReleaseBuilds false
@@ -33,8 +34,8 @@ android {
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 24
-        versionCode 6
-        versionName "1.0.6"
+        versionCode 7
+        versionName "1.0.7"
     }
 
     buildTypes {

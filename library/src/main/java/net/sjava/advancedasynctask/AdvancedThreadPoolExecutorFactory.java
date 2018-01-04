@@ -10,6 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class AdvancedThreadPoolExecutorFactory {
 	private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+
 	private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
 	private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
 	private static final int KEEP_ALIVE_SECONDS = 30;
@@ -76,6 +77,7 @@ public class AdvancedThreadPoolExecutorFactory {
 		THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE_SECONDS,
 				TimeUnit.SECONDS, sTaskQueue, sThreadFactory, rejectHandler);
 
+		THREAD_POOL_EXECUTOR.allowCoreThreadTimeOut(true);
 		return THREAD_POOL_EXECUTOR;
 	}
 

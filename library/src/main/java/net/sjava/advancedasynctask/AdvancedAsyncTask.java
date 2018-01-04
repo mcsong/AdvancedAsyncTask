@@ -171,6 +171,7 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 	private static Executor THREAD_POOL_EXECUTOR = AdvancedThreadPoolExecutorFactory.getInstance().getThreadPoolExecutor();
 	private static volatile Executor sDefaultExecutor = SERIAL_EXECUTOR;
 
+	private Handler mHandler;
 	private static InternalHandler sHandler;
 
 	private WorkerRunnable<Params, Result> mWorker;
@@ -181,15 +182,18 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 	private final AtomicBoolean mCancelled = new AtomicBoolean();
 	private final AtomicBoolean mTaskInvoked = new AtomicBoolean();
 
-	private static Handler getHandler() {
+	private static Handler getMainHandler() {
 		synchronized (AdvancedAsyncTask.class) {
 			if (sHandler == null) {
-				sHandler = new InternalHandler();
+				//sHandler = new InternalHandler();
+				sHandler = new InternalHandler(Looper.getMainLooper());
 			}
 
 			return sHandler;
 		}
 	}
+
+
 
 	public static Executor getThreadPoolExecutor() {
 		return THREAD_POOL_EXECUTOR;
@@ -215,10 +219,14 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 	 *
 	 */
 	public AdvancedAsyncTask(QueuePriority queuePriority, ThreadPriority threadPriority) {
-		this(queuePriority, threadPriority, null);
+		this(queuePriority, threadPriority, null, null);
 	}
 
-	public AdvancedAsyncTask(QueuePriority queuePriority, ThreadPriority threadPriority, AdvancedAsyncTaskCancelTimer taskCancelTimer) {
+    public AdvancedAsyncTask(QueuePriority queuePriority, ThreadPriority threadPriority, AdvancedAsyncTaskCancelTimer taskCancelTimer) {
+        this(queuePriority, threadPriority, taskCancelTimer, null);
+    }
+
+	public AdvancedAsyncTask(QueuePriority queuePriority, ThreadPriority threadPriority, AdvancedAsyncTaskCancelTimer taskCancelTimer, Looper looper) {
 		if(queuePriority == null) {
 			throw new NullPointerException("QueuePriority is null");
 		}
@@ -227,12 +235,12 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 			throw new NullPointerException("ThreadPriority is null");
 		}
 
-		this.inialize(queuePriority, threadPriority, taskCancelTimer);
+		this.inialize(queuePriority, threadPriority, taskCancelTimer, looper);
 	}
 
-	private void inialize(QueuePriority queuePriority, ThreadPriority threadPriority, AdvancedAsyncTaskCancelTimer taskCancelTimer) {
+	private void inialize(QueuePriority queuePriority, ThreadPriority threadPriority, AdvancedAsyncTaskCancelTimer taskCancelTimer, Looper looper) {
 		final int threadPriorityValue = threadPriority.toInt();
-
+		mHandler = looper == null || looper == Looper.getMainLooper() ? getMainHandler() : new Handler(looper);
 		mWorker = new WorkerRunnable<Params, Result>() {
 			public Result call() throws Exception {
 				mTaskInvoked.set(true);
@@ -293,6 +301,10 @@ public abstract class AdvancedAsyncTask<Params, Progress, Result> implements Mes
 		if (!wasTaskInvoked) {
 			postResult(result);
 		}
+	}
+
+	private Handler getHandler() {
+		return mHandler;
 	}
 
 	private Result postResult(Result result) {

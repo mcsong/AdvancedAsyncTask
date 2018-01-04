@@ -9,8 +9,8 @@ import android.os.Message;
  * Created by mcsong@gmail.com on 2015-09-08.
  */
 class InternalHandler extends Handler implements Messages {
-	public InternalHandler() {
-		super(Looper.getMainLooper());
+	public InternalHandler(Looper looper) {
+		super(looper);
 	}
 
 	@SuppressWarnings({"unchecked", "RawUseOfParameterizedType"})
