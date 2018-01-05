@@ -17,7 +17,7 @@ This library is enhanced for using AsyncTask api.
 Gradle
 ```groovy
     dependencies {
-    	compile 'net.sjava:advancedasynctask:1.0.6'
+    	compile 'net.sjava:advancedasynctask:1.0.7'
     }
 ```
 
@@ -26,7 +26,7 @@ Maven
     <dependency>
      <groupId>net.sjava</groupId>
      <artifactId>advancedasynctask</artifactId>
-     <version>1.0.6</version>
+     <version>1.0.7</version>
     </dependency>
 ```
 
@@ -63,6 +63,61 @@ class DefaultPriorityTask extends AdvancedAsyncTask<String, String, String> {
 	}
 }
 ```
+
+```
+01-04 15:58:55.264 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 14 : finished : default : size : 46
+01-04 15:58:55.265 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 55 : finished : default : size : 45
+01-04 15:58:55.269 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 13 : finished : default : size : 44
+01-04 15:58:55.270 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 53 : finished : default : size : 43
+01-04 15:58:55.366 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 171 : finished : default : size : 42
+01-04 15:58:55.366 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 90 : finished : default : size : 41
+01-04 15:58:55.371 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 177 : finished : default : size : 39
+01-04 15:58:55.372 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 179 : finished : default : size : 39
+01-04 15:58:55.466 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 6 : finished : default : size : 38
+01-04 15:58:55.467 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 183 : finished : default : size : 37
+01-04 15:58:55.472 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 186 : finished : default : size : 36
+01-04 15:58:55.473 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 94 : finished : default : size : 36
+01-04 15:58:55.569 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 190 : finished : default : size : 33
+01-04 15:58:55.570 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 25 : finished : default : size : 33
+01-04 15:58:55.573 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 191 : finished : default : size : 32
+01-04 15:58:55.575 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 193 : finished : default : size : 32
+01-04 15:58:55.671 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 30 : finished : default : size : 30
+01-04 15:58:55.671 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 27 : finished : default : size : 29
+01-04 15:58:55.675 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 197 : finished : default : size : 29
+01-04 15:58:55.677 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 199 : finished : default : size : 27
+01-04 15:58:55.772 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 158 : finished : default : size : 26
+01-04 15:58:55.773 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 15 : finished : default : size : 26
+01-04 15:58:55.776 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 159 : finished : default : size : 25
+01-04 15:58:55.778 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 161 : finished : default : size : 23
+01-04 15:58:55.875 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 162 : finished : default : size : 21
+01-04 15:58:55.876 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 166 : finished : default : size : 21
+01-04 15:58:55.878 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 167 : finished : default : size : 20
+01-04 15:58:55.879 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 169 : finished : default : size : 19
+01-04 15:58:55.978 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 170 : finished : default : size : 18
+01-04 15:58:55.978 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 175 : finished : default : size : 16
+01-04 15:58:55.979 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 178 : finished : default : size : 16
+01-04 15:58:55.980 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 182 : finished : default : size : 15
+01-04 15:58:56.080 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 185 : finished : default : size : 12
+01-04 15:58:56.080 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 189 : finished : default : size : 12
+01-04 15:58:56.081 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 98 : finished : default : size : 11
+01-04 15:58:56.081 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 195 : finished : default : size : 11
+01-04 15:58:56.182 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 157 : finished : default : size : 11
+01-04 15:58:56.182 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 82 : finished : default : size : 8
+01-04 15:58:56.182 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 198 : finished : default : size : 7
+01-04 15:58:56.183 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 165 : finished : default : size : 7
+01-04 15:58:56.283 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 174 : finished : default : size : 5
+01-04 15:58:56.283 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 86 : finished : default : size : 3
+01-04 15:58:56.283 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 181 : finished : default : size : 3
+01-04 15:58:56.283 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 50 : finished : default : size : 3
+01-04 15:58:56.385 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 42 : finished : default : size : 2
+01-04 15:58:56.385 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 194 : finished : default : size : 0
+01-04 15:58:56.386 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 22 : finished : default : size : 0
+01-04 15:58:56.386 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 173 : finished : default : size : 0
+01-04 15:58:56.487 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 155 : finished : default : size : 0
+01-04 15:58:56.487 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 46 : finished : default : size : 0
+01-04 15:58:56.489 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTask: 187 : finished : default : size : 0
+```
+
 ### Example 2
 - Queue priority : high
 - Running thread priority : high
@@ -145,9 +200,37 @@ class DefaultPriorityTaskWithTimer extends AdvancedAsyncTask<String, String, Str
 }
 ```
 
+```
+01-04 15:59:51.281 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 7 cancelled
+01-04 15:59:51.281 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 7 cancelled result : null
+01-04 15:59:51.294 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 17 cancelled
+01-04 15:59:51.295 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 17 cancelled result : null
+01-04 15:59:51.295 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 18 cancelled
+01-04 15:59:51.295 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 18 cancelled result : null
+01-04 15:59:51.303 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 19 cancelled
+01-04 15:59:51.303 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 19 cancelled result : null
+01-04 15:59:51.303 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 20 cancelled
+01-04 15:59:51.303 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 20 cancelled result : null
+01-04 15:59:51.309 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 34 cancelled
+01-04 15:59:51.309 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 34 cancelled result : null
+01-04 15:59:51.309 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 35 cancelled
+01-04 15:59:51.309 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 35 cancelled result : null
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 6 cancelled
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 6 cancelled result : null
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 8 cancelled
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 8 cancelled result : null
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 9 cancelled
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 9 cancelled result : null
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 10 cancelled
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 10 cancelled result : null
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 11 cancelled
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 11 cancelled result : null
+01-04 15:59:51.313 19847-19847/net.sjava.advancedasynctask.demo I/DefaultPriorityTaskWithTimer: 12 cancelled
+```
+
 ## License
 
-Copyright 2016 Justin Song
+Copyright 2018 Justin Song
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
