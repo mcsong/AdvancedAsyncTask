@@ -1,6 +1,17 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
+buildscript {
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.9.1'
+    }
+}
+
 publish {
     userOrg = 'mcsong'
     groupId = 'net.sjava'
@@ -12,19 +23,8 @@ publish {
     repository = "${website}.git"
 }
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        //classpath 'com.novoda:bintray-release:0.5.0'
-        classpath 'com.novoda:bintray-release:0.8.1'
-    }
-}
-
 android {
-    compileSdkVersion 25
-    buildToolsVersion "27.0.2"
+    compileSdkVersion 28
 
     lintOptions {
         checkReleaseBuilds false
@@ -32,10 +32,10 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 24
-        versionCode 7
-        versionName "1.0.7"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 8
+        versionName "1.0.8"
     }
 
     buildTypes {
