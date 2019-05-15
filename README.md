@@ -17,7 +17,7 @@ This library is enhanced for using AsyncTask api.
 Gradle
 ```groovy
     dependencies {
-    	compile 'net.sjava:advancedasynctask:1.0.7'
+    	implementation 'net.sjava:advancedasynctask:1.0.7'
     }
 ```
 
