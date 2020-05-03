@@ -1,7 +1,6 @@
 package net.sjava.advancedasynctask.demo;
 
-import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,13 +9,11 @@ import android.widget.Toast;
 import net.sjava.advancedasynctask.AdvancedAsyncTask;
 import net.sjava.advancedasynctask.AdvancedAsyncTaskCancelTimer;
 import net.sjava.advancedasynctask.AdvancedAsyncTaskCompat;
-import net.sjava.advancedasynctask.AdvancedThreadPoolExecutorFactory;
 
 /**
  *
  * Created by mcsong@gmail.com on 2015-09-14.
  */
-
 public class MainActivity extends AppCompatActivity {
 	static String TAG_NAME = MainActivity.class.getSimpleName();
 
@@ -38,12 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
 					if (vv == 0) {
 						AdvancedAsyncTaskCompat.executeParallel(new HighPriorityTask(i), "");
-						//new HighPriorityTask(i).executeOnExecutor(AdvancedAsyncTask.getThreadPoolExecutor(), "");
 					} else {
-
 						AdvancedAsyncTaskCompat.executeParallel(new DefaultPriorityTask(i), "");
-						//new DefaultPriorityTask(i).executeOnExecutor(AdvancedAsyncTask.getThreadPoolExecutor(), "");
-
 					}
 				}
 			}
