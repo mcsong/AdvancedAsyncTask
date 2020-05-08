@@ -1,5 +1,5 @@
 # AdvancedAsyncTask
-[![Release](https://img.shields.io/badge/jcenter-1.0.8-blue.svg)](https://bintray.com/mcsong/maven/advancedasynctask)  [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AdvancedAsyncTask-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/2506)
+[![Release](https://img.shields.io/badge/jcenter-1.1.0-blue.svg)](https://bintray.com/mcsong/maven/advancedasynctask)  [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AdvancedAsyncTask-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/2506)
 
 <a href='https://ko-fi.com/mcsong' target='_blank'>
 	<img height='34' style='border:0px;height:34px;' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
@@ -17,7 +17,7 @@ This library is enhanced for using AsyncTask api.
 Gradle
 ```groovy
     dependencies {
-    	implementation 'net.sjava:advancedasynctask:1.0.8'
+    	implementation 'net.sjava:advancedasynctask:1.1.0'
     }
 ```
 
@@ -26,7 +26,7 @@ Maven
     <dependency>
      <groupId>net.sjava</groupId>
      <artifactId>advancedasynctask</artifactId>
-     <version>1.0.8</version>
+     <version>1.1.0</version>
     </dependency>
 ```
 
