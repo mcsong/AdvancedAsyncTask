@@ -16,7 +16,7 @@ publish {
     userOrg = 'mcsong'
     groupId = 'net.sjava'
     artifactId = 'advancedasynctask'
-    publishVersion = '1.0.8'
+    publishVersion = '1.1.0'
     desc = 'Advanced Asynctask library for Android'
     website = 'https://github.com/mcsong/AdvancedAsyncTask'
     issueTracker = "${website}/issues"
@@ -34,8 +34,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 8
-        versionName "1.0.8"
+        versionCode 110
+        versionName "1.1.0"
     }
 
     buildTypes {
